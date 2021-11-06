@@ -40,8 +40,7 @@ https://dynamics.microsoft.com/ko-kr/ai/customer-insights/what-is-behavioral-ana
 
 
 - 고객이 내일 어떤 상품을 구매할지 예측하는 모형을 만들어야 한다면 어떤 기법(예: SVM, Random Forest, logistic regression 등)을 사용할 것인지 정하고 이를 통계와 기계학습 지식이 전무한 실무자에게 설명해봅시다.<br>
-> 과거의 구매이력을 기반으로 미래를 예측하는 문제이므로 sequential한 데이터에 성능이 좋은 모델을 추천한다. 
-
+> 과거의 구매이력을 기반으로 미래를 예측하는 문제이므로 sequential한 데이터에 성능이 좋은 모델을 추천한다.  RNN과 같이 순서를 가진 데이터에 대해 sliding window기법을 사용하여 과거 데이터의 정보를 기반으로 미래를 예측하는 모델 사용.
 
 
 - 나만의 feature selection 방식을 설명해봅시다.<br>
