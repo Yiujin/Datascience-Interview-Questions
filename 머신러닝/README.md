@@ -165,7 +165,10 @@ https://angeloyeo.github.io/2020/08/05/ROC.html
 
 
 - 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
-> 
+> 일반적으로 각 단계별로 의존적인 end-to-end 인공신경망과 달리 Random Forest는 여러개의 독립적인 decision tree를 이용하여 결과를 투표하는 형식이므로 다수의 서버에서 병렬적인 처리가 용이하다.
+
+> ref  
+> https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question
 
 
 - K-means의 대표적 의미론적 단점은 무엇인가요? (계산량 많다는것 말고)
