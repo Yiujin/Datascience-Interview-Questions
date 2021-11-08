@@ -8,7 +8,7 @@ leave one and out : 단 하나의 데이터만 검증용으로 사용하고, 나머지는 모두 학습용
 
 
 - 회귀 / 분류시 알맞은 metric은 무엇일까요?
-> 회귀 : MSE, RMSE, MAE, accuracy 등
+> 회귀 : MSE, RMSE, MAE, MAPE 등  
 분류 : accuracy, f1 score 등
 
 - 알고 있는 metric에 대해 설명해주세요(ex. RMSE, MAE, recall, precision ...)
@@ -152,15 +152,81 @@ https://ratsgo.github.io/machine%20learning/2017/05/30/SVM3/
 
 
 - 지금 나오고 있는 deep learning 계열의 혁신의 근간은 무엇이라고 생각하시나요?
+> 여러개로 쌓은 레이어와 ReLU 활성화 함수를 사용하여 비선형함수를 근사하도록 한 것
+
+
 - ROC 커브에 대해 설명해주실 수 있으신가요?
+> 이진분류기의 성능을 판단하기 위하여 가능한 모든 threshold에 대한 True Positive rate과 False Psotive Rate을 그래프로 그린 것. 이때 threshold란 모델이 데이터의 정답을 예측하는 기준을 의미하며 모든 데이터에 대해 True라고 예측하면 threshold는 낮아진다. ROC curve는 커브 아래의 면적(AUC)이 넓을수록 모델의 성능이 좋다.  
+> 
+
+>ref  
+https://angeloyeo.github.io/2020/08/05/ROC.html  
+그리는 방법 :https://hsm-edu.tistory.com/1033
+
+
 - 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
+> 
+
+
 - K-means의 대표적 의미론적 단점은 무엇인가요? (계산량 많다는것 말고)
+> 군집의 중심점을 정할 때 군집에 속한 데이터의 평균값을 통해서 중심점을 업데이트하므로 이상치에 민감하다.   
+> 이를 해결하기 위해 평균값 대신 중앙값을 사용하는 K-Median 방법이 있다.
+
 - L1, L2 정규화에 대해 설명해주세요
+> 모델의 과적합을 막기 위한 정규화 방법으로,  
+> L1 정규화는 cost function에 `가중치의 절댓값`을 더하여 cost function값을 커지게 해 weight가 지나치게 커지는 것을 막는다. 불필요한 weight는 편미분시 0이 되는 효과가 있다. L1 정규화를 사용한 선형회귀가 Lasso.  
+> L2 정규화는 codt function에 `가중치의 제곱한 값`을 더하여 weight 가 커지는 것을 막는다. 이를 wwight decay라고 한다. L2 정규화를 사용한 선형회귀가 Ridge.
+
+> ref  
+> https://light-tree.tistory.com/125
+
 - XGBoost을 아시나요? 왜 이 모델이 캐글에서 유명할까요?
+> Gradient Boosting 알고리즘을 분산환경에서도 실행할 수 있도록 구현해놓은 라이브러리이다. Regression, Classification 문제를 모두 지원하며, 성능과 자원 효율이 좋아서, 인기 있게 사용되는 알고리즘이다.
+여러개의 Decision Tree를 조합해서 사용하는 Boosting Ensemble 알고리즘. Boosting 은 이전 모델이 잘못예측한 값에 가중치를 주어 다음 모델이 더 잘 예측하도록 순차적으로 학습하는 방법. 
+<br>
+>장점  
+유연한 Learning 시스템 - 여러 파라미터를 조절해가면서 최적의 Model을 만들 수 있음.  
+Over fitting(과적합)을 방지할 수 있다.  
+신경망에 비해 시각화가 쉽고, 이해하기보다 직관적이다.  
+자원(CPU, 메모리)이 많으면 많을수록 빠르게 학습하고 예측할 수 있다.  
+Cross validation을 지원한다.  
+높은 성능을 나타낸다.   
+
+
+> ref  
+> 출처: https://bcho.tistory.com/1354 [조대협의 블로그]
+> https://dining-developer.tistory.com/3
+
+
 - 앙상블 방법엔 어떤 것들이 있나요?
+> Bagging
+여러 모델을 병렬적으로 학습하여 결과를 합하는 방법으로 분산을 줄이는 효과, Random Forest 
+
+> Boosting
+여러 모델을 순차적으로 학습하여 이전모델이 잘못예측한 것을 다음모델이 더 잘 예측하도록 만드는 방법으로 편향을 줄이는 효과, XGBoost, Gradient Boosting
+
 - SVM은 왜 좋을까요?
+> SVM은 데이터들을 선형 분리하며 최대 마진의 초평면을 찾는 크게 복잡하지 않은 구조이며, 커널 트릭을 이용해 차원을 늘리면서 비선형 데이터들에도 좋은 결과를 얻을 수 있다. 또한 이진 분류 뿐만 아니라 수치 예측에도 사용될 수 있다. Overfitting 경향이 낮으며 노이즈 데이터에도 크게 영향을 받지 않는다.
+
+>ref  
+https://excelsior-cjh.tistory.com/166
+
 - feature vector란 무엇일까요?
+> 입력 데이터, 가중치 등 머신러닝에 사용되는 변수들을 벡터형태로 만든 것
+
+
 - 좋은 모델의 정의는 무엇일까요?
+> 편향되지 않고 모델의 예측이 사회적으로 문제가 되지 않는 모델
+
+
 - 50개의 작은 의사결정 나무는 큰 의사결정 나무보다 괜찮을까요? 왜 그렇게 생각하나요?
+> 의사결정나무의 단점은 분산이 크다는 것이다. 50 개의 작은 의사결정 나무를 모아 앙상블하면 분산을 감소시키는 효과가 있다. 
+
+
 - 스팸 필터에 로지스틱 리그레션을 많이 사용하는 이유는 무엇일까요?
+> 성능이 좋고 계산 비용이 저렴해서 
+
+
 - OLS(ordinary least squre) regression의 공식은 무엇인가요?
+> 최소제곱법, 근사적으로 구하려는 해와 실제 해의 오차의 제곱의 합이 최소가 되는 해를 구하는 방법  
+> https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question
