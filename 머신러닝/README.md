@@ -126,17 +126,29 @@ https://ratsgo.github.io/machine%20learning/2017/05/30/SVM3/
 > https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question
 
 - Association Rule의 Support, Confidence, Lift에 대해 설명해주세요.
-> Association Rule : 
-> Support : X와 Y 두 item이 얼마나 자주 발생하는지를 의미
-> Confidence : X가 발생했을 떄, Y도 포함되어 있는 비율
-> Lift : X가 발생하지 않았을 때의 Y 발생 비율과 X가 발생했을 때 Y 발생 비율의 대비. 숫자가 1보다 크거나 작은 정도에 따라 연관성을 파악할 수 있다.
-
+> Association Rule : 데이터 내부의 상호관계 또는 종속관계를 찾아내는 분석 기법
+> Support : 지지도. X와 Y 두 item이 얼마나 자주 발생하는지를 의미
+> Confidence : 신뢰도. X가 발생했을 떄, Y도 포함되어 있는 비율
+> Lift : 향상도. X가 발생하지 않았을 때의 Y 발생 비율과 X가 발생했을 때 Y 발생 비율의 대비. 숫자가 1과 같으면 서로 독릭적, 1보다 크면 양의 상관관계, 1보다 작으면 음의 상관관계.
 
 
 - 최적화 기법중 Newton’s Method와 Gradient Descent 방법에 대해 알고 있나요?
-- 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
-- 인공신경망(deep learning이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
+> Gradient Descent : 현재 시점의 가중치에서 loss function 의 기울기를 계산하여 loss 가 작아지는 방향(극소값)으로 이동하며 최적화를 하는 방법.  
+> 장점 : 모든 차원과 모든 공간에서 적용 가능  
+> 단점 : 최솟값을 찾지 못하고 극소값에 빠질수 있음  
+> Newton's Method : 방정식 f(x) = 0의 해를 근사적으로 찾을 때 사용되는 방법.
+  현재 x값에서 접선을 그리고 접선이 x축과 만나는 지점으로 x를 이동시켜 가면서 점진적으로 해를 찾아가는 방법  
+> 장점 : 초기값을 잘 주면 해를 금방 찾을 수 있음  
+> 단점 : 해를 아예 찾지 못할 수도 있음
 
+> ref  
+> https://astralworld58.tistory.com/86
+
+- 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
+> 머신러닝이 결국 통계를 기반으로 한 접근 방법이다. 다만 머신러닝은 학습 과정에서 사람이 아닌 모델이 최적화를 해 나간다. 
+
+- 인공신경망(deep learning이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
+> 비선형적인 문제 해결할 수 없음. 
 
 
 - 지금 나오고 있는 deep learning 계열의 혁신의 근간은 무엇이라고 생각하시나요?
